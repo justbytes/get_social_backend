@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
-const thoughtSchema = require("./thought");
 
-const userScema = new Schema(
+const userSchema = new Schema(
   {
     username: {
       type: String,
@@ -13,22 +12,23 @@ const userScema = new Schema(
       type: String,
       required: true,
       unique: true,
-      //match vaild email
+      match: [/.+@.+\..+/],
     },
-    thoughts: {
-      _id: [thoughtSchema],
-    },
-    friends: {
-      _id: [User],
-    },
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
+    ],
   },
   {
     toJSON: {
       getters: true,
     },
+    id: false,
   }
 );
 
-const User = model("user", userSchema);
+const User = model("User", userSchema);
 
 module.exports = User;
