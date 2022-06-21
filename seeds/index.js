@@ -1,13 +1,13 @@
 const connection = require("../config/connection");
 const { User } = require("../models");
-const { dropAll } = require("./dropAll");
-const { seedThoughts } = require("./thoughts");
+// const { dropAll } = require("./dropAll");
+const { seedThoughts } = require("./thought");
 const { seedUsers } = require("./users");
 
 async function seed() {
   try {
     console.log("Dropping all collections");
-    await dropAll();
+    // await dropAll();
     if (process.argv[2] !== "--dropOnly") {
       console.log("Seeding users");
       await seedUsers();

@@ -5,6 +5,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/getSocial", {
   useUnifiedTopology: true,
 });
 
-module.exports = connection;
+module.exports = mongoose.connection;
 
 //connect("mongodb://localhost/developersApplications"

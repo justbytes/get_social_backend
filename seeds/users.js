@@ -25,7 +25,7 @@ for (const username in userData) {
 
 for (const username in userData) {
   const user = userData[username];
-  user.friends = user.friends.map((friend) => userData[friend]._id);
+  user.friends = user.friends.map((friend) => userData[friend]);
 }
 
 async function seedUsers() {
