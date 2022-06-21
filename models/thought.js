@@ -1,27 +1,25 @@
 const { Schema, model } = require("mongoose");
-//const reactionSchema = require("./reaction");
+const reactionSchema = require("./Reaction");
+const dateFormat = require("../utils/dateFormat");
 
 const thoughtSchema = new Schema(
   {
     thoughtText: {
       type: String,
-      required: true,
+      required: "You need to leave a thought!",
       minlength: 1,
       maxlength: 280,
     },
     createdAt: {
       type: Date,
-      // set default to time stamp
-      // user greater method for timestamp on query
+      default: Date.now,
+      get: (time) => dateFormat(time),
     },
     username: {
       type: String,
-
       required: true,
     },
-    // reactions: {
-    //   replies: [reactionSchema],
-    // },
+    reactions: [reactionSchema],
   },
   {
     toJSON: {
@@ -30,6 +28,10 @@ const thoughtSchema = new Schema(
     id: false,
   }
 );
+
+thoughtSchema.virtual("reactionCount").get(function () {
+  return this.reactions.length;
+});
 
 const Thought = model("Thought", thoughtSchema);
 
