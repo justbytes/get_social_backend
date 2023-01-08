@@ -8,8 +8,7 @@ This is project is a working back-end app for a social media page. Users can be 
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [Questions](#questions)
+
 
 ### Installation
 
