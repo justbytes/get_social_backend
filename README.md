@@ -1,8 +1,4 @@
-# Get Social Backend
-
-## Description
-
-This is project is a working back-end app for a social media page. Users can be added and make thoughts and add reactions to their friends thoughts. I built this app to test my skills using Mongoose.
+# Social Network Backend
 
 ## Table of Contents
 
